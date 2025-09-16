@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/858114385030316057/201516c4af754e028628dc1a28ea8b3a/artifacts
+deleted_time: 1758016222620
+end_time: 1758014568880
+entry_point_name: ''
+experiment_id: '858114385030316057'
+lifecycle_stage: deleted
+run_id: 201516c4af754e028628dc1a28ea8b3a
+run_name: flawless-ray-573
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758014559469
+status: 3
+tags: []
+user_id: jasmein

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/284078726652860850/c26eefe73e9e4461b653006586256789/artifacts
+deleted_time: 1758015799034
+end_time: 1758013214882
+entry_point_name: ''
+experiment_id: '284078726652860850'
+lifecycle_stage: deleted
+run_id: c26eefe73e9e4461b653006586256789
+run_name: luxuriant-shrimp-369
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758013201431
+status: 3
+tags: []
+user_id: jasmein

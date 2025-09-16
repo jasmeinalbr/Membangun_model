@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/858114385030316057/69032dd9d67349d7b7fe3f72fba81019/artifacts
+deleted_time: 1758016222620
+end_time: 1758014568880
+entry_point_name: ''
+experiment_id: '858114385030316057'
+lifecycle_stage: deleted
+run_id: 69032dd9d67349d7b7fe3f72fba81019
+run_name: adorable-loon-618
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758014559469
+status: 3
+tags: []
+user_id: jasmein
