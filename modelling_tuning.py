@@ -1,9 +1,9 @@
 import dagshub
 import mlflow
-import mlflow.sklearn
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import joblib
 import json
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
@@ -15,7 +15,8 @@ from sklearn.metrics import (
 )
 
 # --- Init DagsHub ---
-dagshub.init(repo_owner="jasmeinalbr", repo_name="mlsystem-studi-kasus-cs", mlflow=True)
+dagshub.init(repo_owner="jasmeinalbr", repo_name="Membangun_model", mlflow=True)
+mlflow.set_tracking_uri("https://dagshub.com/jasmeinalbr/Membangun_model.mlflow")
 mlflow.set_experiment("Loan Prediction - Advanced")
 
 # --- Load data preprocess ---
@@ -23,10 +24,6 @@ X_train = pd.read_csv("dataset_preprocessing/train_processed.csv")
 X_test = pd.read_csv("dataset_preprocessing/test_processed.csv")
 y_train = pd.read_csv("dataset_preprocessing/y_train.csv").values.ravel()
 y_test = pd.read_csv("dataset_preprocessing/y_test.csv").values.ravel()
-
-# --- Set MLflow experiment ---
-mlflow.set_tracking_uri("http://127.0.0.1:5000/")
-mlflow.set_experiment("Loan Prediction - Skilled")
 
 # --- Candidate models ---
 models = {
@@ -109,8 +106,12 @@ for model_name, model in models.items():
             json.dump(report, f, indent=4)
         mlflow.log_artifact(report_path)
 
-        # log model
-        mlflow.sklearn.log_model(best_model, artifact_path="model")
+        # Simpan model ke file lokal
+        model_path = f"{model_name}_best_model.pkl"
+        joblib.dump(best_model, model_path)
+
+        # Log ke DagsHub sebagai artifact
+        mlflow.log_artifact(model_path)
 
         print(f"✅ {model_name} | Best params: {best_params} | "
               f"Acc: {acc:.4f} | Prec: {prec:.4f} | Rec: {rec:.4f} | F1: {f1:.4f}")

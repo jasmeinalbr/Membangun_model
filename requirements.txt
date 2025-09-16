@@ -1,0 +1,9 @@
+dagshub==0.6.3
+joblib==1.4.2
+matplotlib==3.10.6
+mlflow==3.3.2
+mlflow_skinny==3.3.2
+mlflow_tracing==3.3.2
+pandas==2.3.2
+scikit_learn==1.7.2
+seaborn==0.13.2
