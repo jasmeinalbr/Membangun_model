@@ -1,7 +1,6 @@
 import pandas as pd
 import mlflow
 import mlflow.sklearn
-from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
 # 1. Load dataset hasil preprocessing
@@ -14,9 +13,11 @@ y_test = pd.read_csv("dataset_preprocessing/y_test.csv").values.ravel()
 mlflow.set_tracking_uri("http://127.0.0.1:5000/")
 mlflow.set_experiment("Loan Prediction - Basic")
 
+# autolog
+mlflow.sklearn.autolog()
+
 # 3. Jalankan experiment MLflow
 with mlflow.start_run(run_name="LogisticRegression_Basic"):
-    mlflow.sklearn.autolog()
 
     # Model sederhana Logistic Regression
     model = LogisticRegression(max_iter=1000)
